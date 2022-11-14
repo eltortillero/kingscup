@@ -1,11 +1,10 @@
 import React from "react"
 import { View, Text, StyleSheet } from "react-native"
-
 export const CardPicker = () => {
     return (
         <View style={CardPickerStyles.flexColumn}>
             <Text>
-                Hi there
+               Hi there
             </Text>
         </View>
     );
