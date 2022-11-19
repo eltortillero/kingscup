@@ -15,7 +15,7 @@ export const CardStack: FC<StyledProps> = ({ styles: inheritStyles, selectedCard
     <View style={inheritStyles}>
       {
         selectedCardsHistory.length > 0 ?
-          <ScrollView horizontal={true}>
+          <ScrollView horizontal={true} style={styles.scrollView}>
             {
               selectedCardsHistory.map(({ color, number }, key) => {
                 return (
@@ -38,9 +38,12 @@ export const CardStack: FC<StyledProps> = ({ styles: inheritStyles, selectedCard
 };
 
 const styles = StyleSheet.create({
+  scrollView: {
+    height: 285,
+    paddingVertical: 10,
+  },
   card: {
     width: 140,
-    height: 200,
     display: "flex",
     alignContent: "center",
     alignItems: "center",

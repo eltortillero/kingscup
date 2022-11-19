@@ -1,19 +1,30 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
+import { CustomButton } from './src/components/button/custom-button';
 import { CardPicker } from './src/components/card-picker/card-picker.component';
 import { CardStack } from './src/components/components.index';
+import { RulesModal } from './src/components/modal/modal.component';
 import { useDeck } from './src/hooks/use-deck';
+import { useModal } from './src/hooks/use-modal';
 import { BASE_PALETTE } from './src/palette/base_palette';
 
 export default function App() {
-  const { cardHistoryList, setCardHistoryList, shuffledDeck, setShuffledDeck } = useDeck();
+  const {
+    cardHistoryList,
+    pickCardFromDeck,
+    resetGame,
+  } = useDeck();
+  const {
+    visibility,
+    toggleVisibility
+  } = useModal();
   return (
     <SafeAreaView style={styles.safeViewContainer}>
+      <RulesModal visibleState={visibility} toggleModal={toggleVisibility} />
       <CardStack selectedCardsHistory={cardHistoryList} styles={styles.cardsWrapper} />
-      <CardPicker />
-      {/* <Rules cards={EFFECTS} /> */}
-      {/* DUNNO */}
+      <CardPicker pickRandomCardFn={pickCardFromDeck} resetGameFn={resetGame} />
+      <CustomButton onPress={toggleVisibility} label="Mira las reglas" />
       <StatusBar style='dark' />
     </SafeAreaView>
   );
@@ -27,13 +38,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: BASE_PALETTE.base,
+    backgroundColor: BASE_PALETTE.positive,
   },
   cardsWrapper: {
     backgroundColor: BASE_PALETTE.base,
-    paddingVertical: 15,
-    borderWidth: 1,
-    borderColor: BASE_PALETTE.primary,
     marginBottom: 15,
     width: "100%",
     flex: 1,

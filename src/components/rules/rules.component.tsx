@@ -1,20 +1,18 @@
 import React, { FC } from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { View, StyleSheet, Text, ScrollView, StyleProp } from "react-native";
 import { CARD_RULES } from "../../mocks/mocks.index";
-import { StyledProps } from "./card-stack.componen";
 type CardRules = {
   cards: CARD_RULES;
 };
-export const Rules: FC<CardRules & StyledProps> = ({
+export const Rules: FC<CardRules> = ({
   cards,
-  styles: InheritStyles,
 }) => {
   const isLastChildStyles = (index: number, arr: CARD_RULES) => {
     const isLastChild = index === arr.length - 1;
     return isLastChild ? [styles.flex_column, styles.lastChildMarginBottom] : [styles.flex_column];
   }
   return (
-    <ScrollView scrollEnabled={true} style={[styles.spaces, styles.rulesViewWrapper, InheritStyles]}>
+    <ScrollView scrollEnabled={true} style={[styles.spaces, styles.rulesViewWrapper]}>
       <View>
         <Text style={styles.rule_title}>Reglas</Text>
       </View>

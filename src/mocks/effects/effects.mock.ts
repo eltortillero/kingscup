@@ -37,8 +37,7 @@ export const EFFECTS = [
     ],
     [
         "Caricachupas",
-        "Escoge una categoria y todos deben decir algo sobre esa categoria, \
-        el que repita o no sepa que decir bebe",
+        "Escoge una categoria y todos deben decir algo sobre esa categoria el que repita o no sepa que decir bebe",
     ],
     [
         "Yo nunca nunca...",
@@ -50,8 +49,7 @@ export const EFFECTS = [
     ],
     [
         "Prepara la copa",
-        "Deben preparar una bebida alcoholica, el primer rey escoge el vaso, \
-        el segundo rey pone el alcohol, el tercer rey prepara el trago"
+        "Deben preparar una bebida alcoholica, el primer rey escoge el vaso, el segundo rey pone el alcohol, el tercer rey prepara el trago"
     ],
 ] as const;
 

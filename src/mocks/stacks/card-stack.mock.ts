@@ -1,7 +1,7 @@
 import { Colors, FullCard, FullCardFigures, ICard } from "./stacks.mock";
 
 export const COLORLESS_CARD_STACK: ReadonlyArray<FullCardFigures> = [
-    "ace",
+    "A",
     2,
     3,
     4,
@@ -11,9 +11,9 @@ export const COLORLESS_CARD_STACK: ReadonlyArray<FullCardFigures> = [
     8,
     9,
     10,
-    "jack",
-    "queen",
-    "king",
+    "J",
+    "Q",
+    "K",
 ];
 
 export const COLORS: ReadonlyArray<Colors> = [
