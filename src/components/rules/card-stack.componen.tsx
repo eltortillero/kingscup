@@ -19,9 +19,7 @@ export const CardStack: FC<StyledProps> = ({ styles: inheritStyles, selectedCard
             {
               selectedCardsHistory.map(({ color, number }, key) => {
                 return (
-                  <View style={[styles.card, styles.cardShadow]} key={key}>
-                    <Card color={color} number={number} blacked={false} />
-                  </View>
+                    <Card color={color} number={number} blacked={false} key={key} />
                 );
               })
             }
@@ -39,31 +37,11 @@ export const CardStack: FC<StyledProps> = ({ styles: inheritStyles, selectedCard
 
 const styles = StyleSheet.create({
   scrollView: {
-    height: 285,
+    height: 350,
+    borderWidth:1,
     paddingVertical: 10,
   },
-  card: {
-    width: 140,
-    display: "flex",
-    alignContent: "center",
-    alignItems: "center",
-    backgroundColor: '#fefefe',
-    marginHorizontal: 5,
-    borderBottomStartRadius: 7,
-    borderTopRightRadius: 7,
-    borderTopLeftRadius: 5,
-    borderBottomEndRadius: 5,
-  },
-  cardShadow: {
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.20,
-    shadowRadius: 1.41,
-    elevation: 2,
-  },
+
   emptyHistoryContainer: {
     display: "flex",
     flex: 1,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ShuffleDeck } from "../functions/shuffle-deck";
 import { FULL_ORDERED_DECK, ICard } from "../mocks/mocks.index";
 
-(Array.prototype as any).random = function (callback: (selectedItem: any, selectedIndex: number) => void) {
+(Array.prototype as any).random = function <T,>(callback: (selectedItem: T, selectedIndex: number) => void) {
     const selectedIndex = Math.floor(Math.random() * this.length);
     const selectedItem = this[selectedIndex];
     callback(selectedItem, selectedIndex);
@@ -13,7 +13,7 @@ export function useDeck() {
     const [cardHistoryList, setCardHistoryList] = useState<ICard[]>([]);
     const [shuffledDeck, setShuffledDeck] = useState<ICard[]>([]);
     const [resetTrigger, setResetTrigger] = useState<boolean>(false);
-    
+
     useEffect(() => {
         setCardHistoryList([]);
         setShuffledDeck(ShuffleDeck(initialDeck));
@@ -38,5 +38,6 @@ export function useDeck() {
         shuffledDeck,
         pickCardFromDeck,
         resetGame,
+        currentCard: cardHistoryList[0] ?? null,
     }
 }

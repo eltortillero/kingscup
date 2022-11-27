@@ -21,7 +21,7 @@ export const Card: FC<TCard> = ({ number, color, blacked }) => {
     }
 
     return (
-        <View style={CardStyles.column}>
+        <View style={[CardStyles.column, CardStyles.card, CardStyles.cardShadow]}>
             <View style={CardStyles.alignItemLeft}>
                 <CardColorImg styles={CardStyles.imgStyles} colorName={color} />
             </View>
@@ -41,11 +41,11 @@ export const Card: FC<TCard> = ({ number, color, blacked }) => {
 const CardStyles = StyleSheet.create({
     column: {
         flex: 1,
-        width: "100%",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
         padding: 10,
+        borderWidth: 1
     },
     alignItemLeft: {
         display: "flex",
@@ -74,5 +74,24 @@ const CardStyles = StyleSheet.create({
     imgStyles: {
         width: 40,
         height: 40,
-    }
+    },
+    card: {
+        width: 140,
+        backgroundColor: '#fefefe',
+        marginHorizontal: 5,
+        borderBottomStartRadius: 7,
+        borderTopRightRadius: 7,
+        borderTopLeftRadius: 5,
+        borderBottomEndRadius: 5,
+    },
+    cardShadow: {
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 1,
+        },
+        shadowOpacity: 0.20,
+        shadowRadius: 1.41,
+        elevation: 2,
+    },
 })
