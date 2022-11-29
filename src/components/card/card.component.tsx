@@ -1,4 +1,4 @@
-import { FC, useEffect } from "react";
+import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { Colors } from "../../mocks/mocks.index";
 import { BASE_PALETTE } from "../../palette/base_palette";
@@ -21,7 +21,9 @@ export const Card: FC<TCard> = ({ number, color, blacked }) => {
     }
 
     return (
-        <View style={[CardStyles.column, CardStyles.card, CardStyles.cardShadow]}>
+        <PanGestureHandler>     
+        <View
+         style={[CardStyles.column, CardStyles.card, CardStyles.cardShadow]}>
             <View style={CardStyles.alignItemLeft}>
                 <CardColorImg styles={CardStyles.imgStyles} colorName={color} />
             </View>
@@ -34,6 +36,7 @@ export const Card: FC<TCard> = ({ number, color, blacked }) => {
                 <CardColorImg styles={CardStyles.imgStyles} colorName={color} />
             </View>
         </View>
+        </PanGestureHandler>
     )
 };
 

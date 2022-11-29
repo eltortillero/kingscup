@@ -25,7 +25,6 @@ export default function App() {
     <SafeAreaView style={styles.safeViewContainer}>
       <RulesModal visibleState={visibility} toggleModal={toggleVisibility} />
       <CardStack selectedCardsHistory={cardHistoryList} styles={styles.cardsWrapper} />
-      {/* <CurrentCard card={currentCard} /> */}
       <CardPicker pickRandomCardFn={pickCardFromDeck} resetGameFn={resetGame} />
       <CustomButton onPress={toggleVisibility} label="Mira las reglas" />
       <StatusBar style='dark' />
