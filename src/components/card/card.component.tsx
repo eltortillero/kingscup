@@ -35,7 +35,7 @@ export const Card: FC<TCard> = ({ number, color, blacked }) => {
     }))
     const textColor = () => {
         const isRed = color === 'DIAMONDS' || color === 'HEARTS';
-        return isRed ? CardStyles.cardRed : CardStyles.cardBlack;
+        return isRed ? CardStyles.redCard : CardStyles.blackCard;
     }
 
     return (
@@ -88,10 +88,10 @@ const CardStyles = StyleSheet.create({
         textAlign: "center",
         fontWeight: "900",
     },
-    cardRed: {
+    redCard: {
         color: BASE_PALETTE.primary,
     },
-    cardBlack: {
+    blackCard: {
         color: BASE_PALETTE.base_offset,
     },
     marginBottomCard: {

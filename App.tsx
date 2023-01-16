@@ -1,35 +1,41 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { SafeAreaView, StyleSheet } from 'react-native';
-import { CustomButton } from './src/components/primitives/button/custom-button';
-import { CardPicker } from './src/components/card-picker/card-picker.component';
-import { RulesModal } from './src/components/modal/modal.component';
-import { useDeck } from './src/hooks/use-deck/use-deck';
-import { useModal } from './src/hooks/use-modal/use-modal'
+import {SafeAreaView, StyleSheet, View, Dimensions} from 'react-native';
 import { BASE_PALETTE } from './src/palette/base_palette';
+import {Card} from "./src/components/primitives/public-primitives.api";
+const { width: windowWidth, height: _windowHeight } = Dimensions.get("window");
+const [CARD_HEIGHT, CARD_CONTAINER_HEIGHT] = [250, 1.5, windowWidth];
 
 export default function App() {
-  const {
-    cardHistoryList,
-    pickCardFromDeck,
-    resetGame,
-    currentCard,
-  } = useDeck();
-  const {
-    visibility,
-    toggleVisibility
-  } = useModal();
+  const cardStack = [1,2,3,4,5,6];
   return (
     <SafeAreaView style={styles.safeViewContainer}>
-      <RulesModal visibleState={visibility} toggleModal={toggleVisibility} />
-      <CardPicker pickRandomCardFn={pickCardFromDeck} resetGameFn={resetGame} />
-      <CustomButton onPress={toggleVisibility} label="Mira las reglas" />
-      <StatusBar style='dark' />
+      <StatusBar style='light' />
+      <View style={animatedRoot.mainCardContainer} pointerEvents="box-none">
+          {
+              cardStack.map((number, k) => {
+                  return (
+                      <Card number={number} key={k} zIndex={cardStack.length - 1} screenWidth={windowWidth} />
+                  );
+              })
+          }
+      </View>
     </SafeAreaView>
   );
 }
 
+const animatedRoot = StyleSheet.create({
+    mainCardContainer: {
+        alignItems: 'center',
+        justifyContent: 'center',
+        position: 'relative',
+        height: CARD_HEIGHT * CARD_CONTAINER_HEIGHT,
+    }
+});
 
+/**
+ * @deprecated
+ */
 const styles = StyleSheet.create({
   safeViewContainer: {
     display: "flex",
@@ -37,12 +43,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flexDirection: 'column',
-    backgroundColor: BASE_PALETTE.positive,
-  },
-  cardsWrapper: {
-    backgroundColor: BASE_PALETTE.base,
-    marginBottom: 15,
-    width: "100%",
-    flex: 1,
+    backgroundColor: BASE_PALETTE.background,
   },
 });
