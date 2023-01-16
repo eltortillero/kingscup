@@ -27,18 +27,24 @@ export const Card: FC<CardProps> = ({number, screenWidth, zIndex, color}) => {
         <Animated.View style={[
             cardStyles.cardItem,
             animatedStyle,
+            {
+                borderWidth: 2,
+                borderColor: "white",
+            },
             {width, height, zIndex},
         ]}>
-            <View>
-                <CardColorImg styles={cardStyles.cardImgTop} colorName={color}/>
-            </View>
-            <View>
-                <Text style={[cardStyles.cardMainFont, fontColor()]}>
-                    {number}
-                </Text>
-            </View>
-            <View>
-                <CardColorImg styles={cardStyles.cardImgBottom} colorName={color}/>
+            <View style={cardStyles.cardInnerContainer}>
+                <View>
+                    <CardColorImg styles={cardStyles.cardImgTop} colorName={color}/>
+                </View>
+                <View>
+                    <Text style={[cardStyles.cardMainFont, fontColor()]}>
+                        {number}
+                    </Text>
+                </View>
+                <View>
+                    <CardColorImg styles={cardStyles.cardImgBottom} colorName={color}/>
+                </View>
             </View>
         </Animated.View>
     </PanGestureHandler>
