@@ -1,5 +1,5 @@
 import {FC} from "react"
-import {TouchableOpacity, Text} from "react-native";
+import {TouchableOpacity, Text, View} from "react-native";
 import {CustomButtonProps} from './signatures/custom-button-props';
 import {CustomButtonsStyles} from "./styles/custom-button.styles";
 
@@ -11,9 +11,11 @@ import {CustomButtonsStyles} from "./styles/custom-button.styles";
 export const CustomButton: FC<CustomButtonProps> = ({onPress, label}) => {
     return (
         <TouchableOpacity style={CustomButtonsStyles.cover} onPress={onPress}>
-            <Text style={CustomButtonsStyles.text}>
-                {label}
-            </Text>
+            <View style={CustomButtonsStyles.innerContainer}>
+                <Text style={CustomButtonsStyles.text}>
+                    {label}
+                </Text>
+            </View>
         </TouchableOpacity>
     );
 }

@@ -1,4 +1,4 @@
-import { Colors } from "../types/public-types.api";
+import {Colors} from "../types/public-types.api";
 
 export const COLORS: ReadonlyArray<Colors> = [
     "CLOVERS",

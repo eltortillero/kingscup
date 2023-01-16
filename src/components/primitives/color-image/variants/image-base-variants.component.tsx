@@ -6,7 +6,7 @@ type ColorImgProps<T> = {
 };
 
 export const ColorImgVariants = {
-    HeartImg: <T extends object,>({ styles }: ColorImgProps<T>) => {
+    HeartImg: <T extends object, >({styles}: ColorImgProps<T>) => {
         return (
             <View>
                 <Image
@@ -16,7 +16,7 @@ export const ColorImgVariants = {
             </View>
         );
     },
-    CloverImg: <T extends object,>({ styles }: ColorImgProps<T>) => {
+    CloverImg: <T extends object, >({styles}: ColorImgProps<T>) => {
         return (
             <View>
                 <Image
@@ -27,7 +27,7 @@ export const ColorImgVariants = {
             </View>
         );
     },
-    SpadesImg: <T extends object,>({ styles }: ColorImgProps<T>) => {
+    SpadesImg: <T extends object, >({styles}: ColorImgProps<T>) => {
         return (
             <View>
                 <Image
@@ -37,7 +37,7 @@ export const ColorImgVariants = {
             </View>
         );
     },
-    DiamondImg: <T extends object,>({ styles }: ColorImgProps<T>) => {
+    DiamondImg: <T extends object, >({styles}: ColorImgProps<T>) => {
         return (
             <View>
                 <Image

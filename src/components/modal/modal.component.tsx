@@ -1,15 +1,16 @@
-import React, { FC } from "react";
-import { Modal, SafeAreaView, StyleSheet, View } from "react-native";
-import { EFFECTS } from "../../rules/public-rules.api";
-import { CustomButton } from "../primitives/button/custom-button";
-import { Rules } from '../components.index';
+import React, {FC} from "react";
+import {Modal, SafeAreaView, StyleSheet, View} from "react-native";
+import {EFFECTS} from "../../rules/public-rules.api";
+import {CustomButton} from "../primitives/button/custom-button";
+import {Rules} from '../components.index';
+import {BASE_PALETTE} from "../../palette/base_palette";
 
 type RulesModalProps = {
     visibleState: boolean;
     toggleModal: () => void;
 }
 
-export const RulesModal: FC<RulesModalProps> = ({ visibleState, toggleModal }) => {
+export const RulesModal: FC<RulesModalProps> = ({visibleState, toggleModal}) => {
     return (
         <Modal
             animationType="slide"
@@ -17,12 +18,12 @@ export const RulesModal: FC<RulesModalProps> = ({ visibleState, toggleModal }) =
             visible={visibleState}
             onRequestClose={toggleModal}
         >
-            <SafeAreaView style={modalStyles.flex1}>
-                <View style={modalStyles.flex1}>
-                    <Rules cards={EFFECTS} />
+            <SafeAreaView style={modalStyles.flex}>
+                <View style={modalStyles.flex}>
+                    <Rules cards={EFFECTS}/>
                     <View style={modalStyles.buttonContainer}>
                         <View style={modalStyles.buttonWrapper}>
-                         <CustomButton  label="Cerrar lista de reglas" onPress={toggleModal} />
+                            <CustomButton label="Close rule list" onPress={toggleModal}/>
                         </View>
                     </View>
                 </View>
@@ -32,14 +33,15 @@ export const RulesModal: FC<RulesModalProps> = ({ visibleState, toggleModal }) =
 }
 
 const modalStyles = StyleSheet.create({
-    flex1: {
-        flex: 1
+    flex: {
+        flex: 1,
+        backgroundColor: BASE_PALETTE.background,
     },
     buttonContainer: {
-        display:"flex",
-        alignItems:"center"
+        display: "flex",
+        alignItems: "center"
     },
     buttonWrapper: {
-        width:"90%"
+        width: "90%"
     }
 })

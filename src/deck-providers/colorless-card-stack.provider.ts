@@ -1,4 +1,4 @@
-import { FullCardFigures } from "../types/public-types.api";
+import {FullCardFigures} from "../types/public-types.api";
 
 export const COLORLESS_CARD_STACK: ReadonlyArray<FullCardFigures> = [
     "A",

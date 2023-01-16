@@ -1,6 +1,6 @@
-import React, { FC } from "react"
-import { View, StyleSheet } from "react-native"
-import { CustomButton } from "../primitives/button/custom-button";
+import React, {FC} from "react"
+import {View, StyleSheet} from "react-native"
+import {CustomButton} from "../primitives/button/custom-button";
 
 type CardPickerProps = {
     pickRandomCardFn: () => void;
@@ -8,17 +8,17 @@ type CardPickerProps = {
 }
 
 export const CardPicker: FC<CardPickerProps> = ({
-    pickRandomCardFn,
-    resetGameFn,
-}) => {
+                                                    pickRandomCardFn,
+                                                    resetGameFn,
+                                                }) => {
     return (
         <View style={CardPickerStyles.flexColumn}>
 
             <View style={CardPickerStyles.buttonContainerMarginButton}>
-                <CustomButton label="Escoge carta" onPress={pickRandomCardFn} />
+                <CustomButton label="Escoge carta" onPress={pickRandomCardFn}/>
             </View>
             <View style={CardPickerStyles.buttonContainerMarginButton}>
-                <CustomButton label="Reinicia juego actual" onPress={resetGameFn} />
+                <CustomButton label="Reinicia juego actual" onPress={resetGameFn}/>
             </View>
         </View>
     );
