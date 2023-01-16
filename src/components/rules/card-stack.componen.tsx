@@ -12,10 +12,10 @@ export type StyledProps = {
 
 export const CardStack: FC<StyledProps> = ({ styles: inheritStyles, selectedCardsHistory }) => {
   return (
-    <View style={inheritStyles}>
+    <View style={inheritStyles} pointerEvents="none">
       {
         selectedCardsHistory.length > 0 ?
-          <ScrollView horizontal={true} style={styles.scrollView}>
+          <ScrollView pointerEvents="none" horizontal={true} style={styles.scrollView}>
             {
               selectedCardsHistory.map(({ color, number }, key) => {
                 return (

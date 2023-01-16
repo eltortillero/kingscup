@@ -1,5 +1,5 @@
 import React, { FC } from "react"
-import { View, Text, StyleSheet } from "react-native"
+import { View, StyleSheet } from "react-native"
 import { CustomButton } from "../button/custom-button";
 
 type CardPickerProps = {
@@ -7,9 +7,13 @@ type CardPickerProps = {
     resetGameFn: () => void;
 }
 
-export const CardPicker: FC<CardPickerProps> = ({ pickRandomCardFn, resetGameFn }) => {
+export const CardPicker: FC<CardPickerProps> = ({
+    pickRandomCardFn,
+    resetGameFn,
+}) => {
     return (
         <View style={CardPickerStyles.flexColumn}>
+
             <View style={CardPickerStyles.buttonContainerMarginButton}>
                 <CustomButton label="Escoge carta" onPress={pickRandomCardFn} />
             </View>

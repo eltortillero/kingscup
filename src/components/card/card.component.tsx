@@ -1,5 +1,7 @@
 import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { PanGestureHandler } from "react-native-gesture-handler";
+import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
 import { Colors } from "../../mocks/mocks.index";
 import { BASE_PALETTE } from "../../palette/base_palette";
 import { CardColorImg } from "./color.component";
@@ -13,29 +15,50 @@ type TCard = {
 
 
 export const Card: FC<TCard> = ({ number, color, blacked }) => {
-
-
+    const x = useSharedValue<number>(0);
+    const y = useSharedValue<number>(0);
+    const onGestureEvent = useAnimatedGestureHandler({
+        onActive: ({ translationX, translationY }) => {
+            x.value = translationX;
+            y.value = translationY;
+        }
+    });
+    const animatedStyle = useAnimatedStyle(() => ({
+        transform: [
+            {
+                translateX: x.value,
+            },
+            {
+                translateY: y.value,
+            }
+        ]
+    }))
     const textColor = () => {
         const isRed = color === 'DIAMONDS' || color === 'HEARTS';
         return isRed ? CardStyles.cardRed : CardStyles.cardBlack;
     }
 
     return (
-        <PanGestureHandler>     
-        <View
-         style={[CardStyles.column, CardStyles.card, CardStyles.cardShadow]}>
-            <View style={CardStyles.alignItemLeft}>
-                <CardColorImg styles={CardStyles.imgStyles} colorName={color} />
-            </View>
-            <View>
-                <Text style={[CardStyles.cardLabel, textColor()]}>
-                    {number}
-                </Text>
-            </View>
-            <View style={CardStyles.alignItemRight}>
-                <CardColorImg styles={CardStyles.imgStyles} colorName={color} />
-            </View>
-        </View>
+        <PanGestureHandler>
+            <Animated.View
+                style={[
+                    CardStyles.column,
+                    CardStyles.card,
+                    CardStyles.cardShadow,
+                    animatedStyle,
+                ]}>
+                <View style={CardStyles.alignItemLeft}>
+                    <CardColorImg styles={CardStyles.imgStyles} colorName={color} />
+                </View>
+                <View>
+                    <Text style={[CardStyles.cardLabel, textColor()]}>
+                        {number}
+                    </Text>
+                </View>
+                <View style={CardStyles.alignItemRight}>
+                    <CardColorImg styles={CardStyles.imgStyles} colorName={color} />
+                </View>
+            </Animated.View>
         </PanGestureHandler>
     )
 };
