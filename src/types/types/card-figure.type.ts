@@ -1,0 +1,1 @@
+export type TCardFigure = "A" | "K" | "Q" | "J";

@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import { View, StyleSheet } from "react-native"
-import { CustomButton } from "../button/custom-button";
+import { CustomButton } from "../primitives/button/custom-button";
 
 type CardPickerProps = {
     pickRandomCardFn: () => void;

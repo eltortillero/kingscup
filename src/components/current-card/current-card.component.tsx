@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { View, Text } from "react-native";
-import { ICard } from "../../mocks/stacks/stacks.mock";
+import { ICard } from "../../types/public-types.api";
 import { Card } from "../card/card.component";
 
 type CurrentCardProps = {

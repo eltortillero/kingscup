@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { Modal, SafeAreaView, StyleSheet, View } from "react-native";
-import { EFFECTS } from "../../mocks/mocks.index";
-import { CustomButton } from "../button/custom-button";
+import { EFFECTS } from "../../rules/public-rules.api";
+import { CustomButton } from "../primitives/button/custom-button";
 import { Rules } from '../components.index';
 
 type RulesModalProps = {

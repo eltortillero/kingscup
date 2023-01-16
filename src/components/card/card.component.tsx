@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { PanGestureHandler } from "react-native-gesture-handler";
 import Animated, { useAnimatedGestureHandler, useAnimatedStyle, useSharedValue } from "react-native-reanimated";
-import { Colors } from "../../mocks/mocks.index";
 import { BASE_PALETTE } from "../../palette/base_palette";
+import { Colors } from "../../types/public-types.api";
 import { CardColorImg } from "./color.component";
 
 

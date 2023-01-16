@@ -1,6 +1,6 @@
 import React, { FC } from "react";
-import { View, StyleSheet, Text, ScrollView, StyleProp } from "react-native";
-import { CARD_RULES } from "../../mocks/mocks.index";
+import { View, StyleSheet, Text, ScrollView } from "react-native";
+import { CARD_RULES } from "../../rules/public-rules.api";
 type CardRules = {
   cards: CARD_RULES;
 };

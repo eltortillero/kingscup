@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { ScrollView, View, Text, StyleProp, ViewStyle } from "react-native";
 import { StyleSheet } from "react-native";
-import { ICard } from "../../mocks/mocks.index";
 import { BASE_PALETTE } from "../../palette/base_palette";
+import { ICard } from "../../types/public-types.api";
 import { Card } from "../card/card.component";
 
 export type StyledProps = {

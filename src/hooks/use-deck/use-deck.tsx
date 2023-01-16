@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import { ShuffleDeck } from "../functions/shuffle-deck";
-import { FULL_ORDERED_DECK, ICard } from "../mocks/mocks.index";
+import { FULL_ORDERED_DECK } from "../../deck-providers/full-ordered-deck";
+import { ShuffleDeck } from "../../functions/shuffle-deck";
+import { ICard } from "../../types/public-types.api";
 
 (Array.prototype as any).random = function <T,>(callback: (selectedItem: T, selectedIndex: number) => void) {
     const selectedIndex = Math.floor(Math.random() * this.length);

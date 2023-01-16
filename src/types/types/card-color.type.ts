@@ -1,0 +1,1 @@
+export type Colors = "HEARTS" | "CLOVERS" | "DIAMONDS" | "SPADES";

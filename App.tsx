@@ -1,12 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { SafeAreaView, StyleSheet } from 'react-native';
-import { CustomButton } from './src/components/button/custom-button';
+import { CustomButton } from './src/components/primitives/button/custom-button';
 import { CardPicker } from './src/components/card-picker/card-picker.component';
-import { CardStack } from './src/components/components.index';
 import { RulesModal } from './src/components/modal/modal.component';
-import { useDeck } from './src/hooks/use-deck';
-import { useModal } from './src/hooks/use-modal'
+import { useDeck } from './src/hooks/use-deck/use-deck';
+import { useModal } from './src/hooks/use-modal/use-modal'
 import { BASE_PALETTE } from './src/palette/base_palette';
 
 export default function App() {

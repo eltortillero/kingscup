@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import { View, Image, StyleSheet } from "react-native";
-import { Colors } from "../../mocks/mocks.index";
+import { Colors } from "../../types/public-types.api";
 
 interface ColorImgProps<T> {
     styles?: T;
