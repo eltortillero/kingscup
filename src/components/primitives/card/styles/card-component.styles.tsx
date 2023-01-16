@@ -7,12 +7,10 @@ export const cardStyles = StyleSheet.create({
         alignSelf: 'center',
         borderRadius: 5,
         padding: 20,
-        backgroundColor: 'white',
+        backgroundColor: "rgb(23,23,23)",
         display: "flex",
         alignContent: "center",
         justifyContent: "space-between",
-        borderWidth: 1,
-        borderColor: 'yellow',
     },
     cardImgTop: {
         width: 40,

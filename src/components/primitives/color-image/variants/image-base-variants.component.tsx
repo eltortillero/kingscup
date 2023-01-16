@@ -20,6 +20,7 @@ export const ColorImgVariants = {
         return (
             <View>
                 <Image
+
                     style={styles || ImgDefaultStyles.imgStyles}
                     source={require('./images/clover.png')}
                 />

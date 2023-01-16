@@ -6,7 +6,7 @@ export const BASE_PALETTE = {
     base_offset: '#2B2D42',
     positive: '#fff',
     negative: '#000',
-    background: '#222',
+    background: 'rgb(30, 30, 30)',
 } as const;
 
 export type BASE_PALETTE_TYPE = typeof BASE_PALETTE;
