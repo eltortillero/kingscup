@@ -1,6 +1,6 @@
 import React from 'react';
 import {StatusBar} from 'expo-status-bar';
-import {SafeAreaView, StyleSheet, View, Dimensions} from 'react-native';
+import {SafeAreaView, StyleSheet, View, Dimensions, Text} from 'react-native';
 import {BASE_PALETTE} from './src/palette/base_palette';
 import {Card, CustomButton} from "./src/components/primitives/public-primitives.api";
 import {useDeck, useModal} from "./src/hooks/public-hooks.api";
@@ -16,6 +16,11 @@ export default function App() {
         <SafeAreaView style={animatedRoot.safeViewContainer}>
             <StatusBar style='light'/>
             <RulesModal visibleState={visibility} toggleModal={toggleVisibility}/>
+            <View style={animatedRoot.gameNameContainer}>
+                <Text style={animatedRoot.gameNameText}>
+                    KINGS CUP
+                </Text>
+            </View>
             <View style={animatedRoot.mainCardContainer} pointerEvents="box-none">
                 {
                     shuffledDeck.map(({number, color}, k) => {
@@ -26,7 +31,7 @@ export default function App() {
                     })
                 }
             </View>
-            <View>
+            <View style={animatedRoot.buttonsContainer}>
                 <CustomButton onPress={resetGame} label={"Reset game"}/>
                 <CustomButton onPress={toggleVisibility} label={"See rules"}/>
             </View>
@@ -39,14 +44,27 @@ const animatedRoot = StyleSheet.create({
         display: "flex",
         height: "100%",
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: "space-evenly",
         flexDirection: 'column',
         backgroundColor: BASE_PALETTE.background,
+    },
+    gameNameContainer: {
+        zIndex: 1
+    },
+    gameNameText: {
+        color: BASE_PALETTE.positive,
+        fontSize: 25,
+        fontWeight: "bold"
     },
     mainCardContainer: {
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative',
         height: CARD_HEIGHT * CARD_CONTAINER_HEIGHT,
+        zIndex: 2,
+    },
+    buttonsContainer: {
+        alignSelf: "center",
+        zIndex: 1
     }
 });
