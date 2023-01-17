@@ -16,7 +16,6 @@ import {ICard} from "../../types/public-types.api";
 type useDeckSignature = {
     cardHistoryList: ICard[];
     shuffledDeck: ICard[];
-    pickCardFromDeck: VoidFunction;
     resetGame: VoidFunction;
     currentCard: ICard | null;
 }
@@ -30,34 +29,18 @@ type useDeckSignature = {
  * @returns an {@link useDeckSignature}
  */
 export function useDeck(): useDeckSignature {
-    const initialDeck = FULL_ORDERED_DECK;
+    const newShuffledDeck = () => ShuffleDeck(FULL_ORDERED_DECK());
     const [cardHistoryList, setCardHistoryList] = useState<ICard[]>([]);
-    const [shuffledDeck, setShuffledDeck] = useState<ICard[]>([]);
-    const [resetTrigger, setResetTrigger] = useState<boolean>(false);
-
-    useEffect(() => {
-        setCardHistoryList([]);
-        setShuffledDeck(ShuffleDeck(initialDeck));
-    }, [resetTrigger]);
-
-    const pickCardFromDeck = () => {
-        (shuffledDeck as any).random((randomItem: ICard, index: number) => {
-            setCardHistoryList((historyList) => [randomItem, ...historyList]);
-            setShuffledDeck((currentShuffledList) => {
-                currentShuffledList.splice(index, 1);
-                return currentShuffledList;
-            });
-        });
-    }
+    const [shuffledDeck, setShuffledDeck] = useState<ICard[]>(newShuffledDeck());
 
     const resetGame = () => {
-        setResetTrigger(fakeTrigger => !fakeTrigger);
+        setShuffledDeck(newShuffledDeck());
+        setCardHistoryList([]);
     }
 
     return {
         cardHistoryList,
         shuffledDeck,
-        pickCardFromDeck,
         resetGame,
         currentCard: cardHistoryList[0] ?? null,
     }

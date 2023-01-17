@@ -8,6 +8,8 @@ export const cardStyles = StyleSheet.create({
         borderRadius: 10,
         padding: 10,
         backgroundColor: "rgb(23,23,23)",
+        borderWidth: 2,
+        borderColor: "white",
     },
     cardInnerContainer: {
         flex: 1,

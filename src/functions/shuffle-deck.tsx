@@ -1,5 +1,4 @@
-import {ICard} from "../mocks/mocks.index";
-
+import {ICard} from "../types/types/card.type";
 /**
  * @description this mutates the provided deck
  * @param deck {@link ICard}[]

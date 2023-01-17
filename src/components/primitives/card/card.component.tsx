@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, useEffect} from "react";
 import {Text, View} from "react-native";
 import Animated from "react-native-reanimated";
 import {PanGestureHandler} from "react-native-gesture-handler";
@@ -27,10 +27,6 @@ export const Card: FC<CardProps> = ({number, screenWidth, zIndex, color}) => {
         <Animated.View style={[
             cardStyles.cardItem,
             animatedStyle,
-            {
-                borderWidth: 2,
-                borderColor: "white",
-            },
             {width, height, zIndex},
         ]}>
             <View style={cardStyles.cardInnerContainer}>

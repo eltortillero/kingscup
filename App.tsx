@@ -5,11 +5,13 @@ import {BASE_PALETTE} from './src/palette/base_palette';
 import {Card, CustomButton} from "./src/components/primitives/public-primitives.api";
 import {useDeck, useModal} from "./src/hooks/public-hooks.api";
 import {RulesModal} from "./src/components/modal/modal.component";
+import {createId} from "./src/functions/public-functios.api";
+
 
 const {width: windowWidth, height: _windowHeight} = Dimensions.get("window");
 const [CARD_HEIGHT, CARD_CONTAINER_HEIGHT] = [250, 1.5, windowWidth];
 
-export default function App() {
+export default function App():JSX.Element {
     const {shuffledDeck, resetGame} = useDeck();
     const {visibility, toggleVisibility} = useModal();
     return (
@@ -25,7 +27,7 @@ export default function App() {
                 {
                     shuffledDeck.map(({number, color}, k) => {
                         return (
-                            <Card number={number} color={color} key={k} zIndex={k + 2}
+                            <Card number={number} color={color} key={createId()} zIndex={k+1}
                                   screenWidth={windowWidth}/>
                         );
                     })
